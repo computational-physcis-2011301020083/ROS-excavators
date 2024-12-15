@@ -15,10 +15,10 @@
   </include>
   
   <!-- Run Rviz and load the default config to see the state of the move_group node -->
-  <include file="$(find pudong_moveit)/launch/moveit_rviz.launch" if="true">
+  <!--include file="$(find pudong_moveit)/launch/moveit_rviz.launch" if="true">
     <arg name="rviz_config" value="$(find pudong_moveit)/launch/moveit.rviz"/>
     <arg name="debug" value="true"/>
-  </include>
+  </include-->
 
 
 
