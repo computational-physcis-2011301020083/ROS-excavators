@@ -54,7 +54,9 @@ cd ROS-excavators/catkin_ws/
 rm -rf build/  
 cp  /opt/ros/melodic/share/catkin/cmake/toplevel.cmake src/CMakeLists.txt  
 catkin_make  
-source devel/setup.bash  
+source /home/weiding/ROS-excavators/catkin_ws/devel/setup.bash  
+chmod +x src/pudong_gazebo/scripts/*.py  
+chmod +x src/controller_manager/scripts/*  
 ## catkin_ws工作空间下的各功能包使用、功能说明
 ### 1.controller_manager
 控制功能包。此功能为对挖掘机进行控制的基础。  
