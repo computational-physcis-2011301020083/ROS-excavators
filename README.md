@@ -1,42 +1,42 @@
 # ROS-based-autonomous-navigation-and-excavation-control-for-excavators  
 ## 环境安装
 #### ros: 
-https://wiki.ros.org/melodic/Installation/Ubuntu 
-#### TBB：
-参考 https://blog.csdn.net/Twilightzr/article/details/126533557 
-git clone https://github.com/oneapi-src/oneTBB
-git checkout v2020.1
-cd oneTBB_202001
-cmake -DTBB_ROOT=/home/weiding/oneTBB-2020.1 -DTBB_OS=Linux -P cmake/tbb_config_generator.cmake
-cd oneTBB_202001
-make
-cd build
-sudo chmod +x *.sh
-sh generate_tbbvars.sh
-sh tbbvars.sh
-在TBB源码目录下
-cd oneTBB_202001/build
-cd linux_intel64_gcc_cc5.5.0_libc2.31_kernel5.11.0_release #该目录根据系统gcc版本和kernal版本自动生成
-sudo cp *.so /usr/local/lib #或者/usr/lib
-sudo cp *.so.2 /usr/local/lib #或者/usr/lib
-sudo /sbin/ldconfig
-cd include
-sudo cp -rf ./* /usr/local/include
-cd cmake
-sudo mkdir TBB
-sudo cp TBBConfig.cmake  TBBConfigVersion.cmake /usr/local/lib/cmake/TBB/.
+https://wiki.ros.org/melodic/Installation/Ubuntu   
+#### TBB:
+参考 https://blog.csdn.net/Twilightzr/article/details/126533557   
+git clone https://github.com/oneapi-src/oneTBB  
+git checkout v2020.1  
+cd oneTBB_202001  
+cmake -DTBB_ROOT=/home/weiding/oneTBB-2020.1 -DTBB_OS=Linux -P cmake/tbb_config_generator.cmake  
+cd oneTBB_202001  
+make  
+cd build  
+sudo chmod +x *.sh  
+sh generate_tbbvars.sh  
+sh tbbvars.sh  
+在TBB源码目录下  
+cd oneTBB_202001/build  
+cd linux_intel64_gcc_cc5.5.0_libc2.31_kernel5.11.0_release #该目录根据系统gcc版本和kernal版本自动生成  
+sudo cp *.so /usr/local/lib #或者/usr/lib  
+sudo cp *.so.2 /usr/local/lib #或者/usr/lib  
+sudo /sbin/ldconfig  
+cd include  
+sudo cp -rf ./* /usr/local/include  
+cd cmake  
+sudo mkdir TBB  
+sudo cp TBBConfig.cmake  TBBConfigVersion.cmake /usr/local/lib/cmake/TBB/.  
 #### GTSAM:
-参考  https://blog.csdn.net/2301_79970562/article/details/136237507
-sudo apt-get install cmake
-sudo apt-get install cmake
-sudo apt-get install libtbb-dev
-sudo apt-get install intel-mkl-full
-git clone https://bitbucket.org/gtborg/gtsam.git
-cd ~/gtsam 
-mkdir build
-cd build
-cmake ..
-sudo  make install
+参考  https://blog.csdn.net/2301_79970562/article/details/136237507  
+sudo apt-get install cmake  
+sudo apt-get install cmake  
+sudo apt-get install libtbb-dev  
+sudo apt-get install intel-mkl-full  
+git clone https://bitbucket.org/gtborg/gtsam.git  
+cd ~/gtsam   
+mkdir build  
+cd build  
+cmake ..  
+sudo  make install  
 ## catkin_ws工作空间下的各功能包使用、功能说明
 ### 1.controller_manager
 控制功能包。此功能为对挖掘机进行控制的基础。  
