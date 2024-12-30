@@ -17,11 +17,11 @@ sh tbbvars.sh
 在TBB源码目录下  
 cd oneTBB_202001/build  
 cd linux_intel64_gcc_cc5.5.0_libc2.31_kernel5.11.0_release #该目录根据系统gcc版本和kernal版本自动生成  
-sudo cp *.so /usr/local/lib #或者/usr/lib  
-sudo cp *.so.2 /usr/local/lib #或者/usr/lib  
+sudo cp \*.so /usr/local/lib #或者/usr/lib  
+sudo cp \*.so.2 /usr/local/lib #或者/usr/lib  
 sudo /sbin/ldconfig  
 cd include  
-sudo cp -rf ./* /usr/local/include  
+sudo cp -rf ./\* /usr/local/include  
 cd cmake  
 sudo mkdir TBB  
 sudo cp TBBConfig.cmake  TBBConfigVersion.cmake /usr/local/lib/cmake/TBB/.  
