@@ -139,7 +139,7 @@ class Excavator():
 
     def data_transfer(self, fl_name):
         """输入csv文件的完整文件名，返回一个包含所有路点数据的嵌套列表"""
-        filename = '/home/weiding/catkin_ws/src/pudong_gazebo/scripts/waypoint_dates/' + fl_name
+        filename = '/home/weiding/ROS-excavators/catkin_ws/src/pudong_gazebo/scripts/waypoint_dates/' + fl_name
         dates = []
         with open(filename, 'r') as waypoints:
             reader = csv.reader(waypoints)
