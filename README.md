@@ -1,8 +1,8 @@
 # ROS-based-autonomous-navigation-and-excavation-control-for-excavators  
 ## 环境安装
-#### 1.ros
+#### ros: 
 https://wiki.ros.org/melodic/Installation/Ubuntu 
-#### 2.TBB
+#### TBB:
 参考 https://blog.csdn.net/Twilightzr/article/details/126533557 
 git clone https://github.com/oneapi-src/oneTBB
 git checkout v2020.1
@@ -25,7 +25,7 @@ sudo cp -rf ./* /usr/local/include
 cd cmake
 sudo mkdir TBB
 sudo cp TBBConfig.cmake  TBBConfigVersion.cmake /usr/local/lib/cmake/TBB/.
-#### 3.GTSAM
+#### GTSAM:
 参考  https://blog.csdn.net/2301_79970562/article/details/136237507
 sudo apt-get install cmake
 sudo apt-get install cmake
