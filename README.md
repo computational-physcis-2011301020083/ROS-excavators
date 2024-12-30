@@ -37,6 +37,17 @@ mkdir build
 cd build  
 cmake ..  
 sudo  make install  
+#### libuvc
+参考 https://blog.csdn.net/kangear/article/details/94878361  
+相机部分(可选)
+sudo apt-get intall libjpeg-dev libusb-1.0-0-dev  
+sudo ldconfig  
+git clone https://github.com/ktossell/libuvc  
+cd libuvc  
+mkdir build  
+cd build  
+cmake ..  
+make && sudo make install  
 ## catkin_ws工作空间下的各功能包使用、功能说明
 ### 1.controller_manager
 控制功能包。此功能为对挖掘机进行控制的基础。  
