@@ -11,7 +11,7 @@ cmake -DTBB_ROOT=/home/weiding/oneTBB-2020.1 -DTBB_OS=Linux -P cmake/tbb_config_
 cd oneTBB_202001  
 make  
 cd build  
-sudo chmod +x *.sh  
+sudo chmod +x \*.sh  
 sh generate_tbbvars.sh  
 sh tbbvars.sh  
 在TBB源码目录下  
@@ -55,8 +55,8 @@ rm -rf build/
 cp  /opt/ros/melodic/share/catkin/cmake/toplevel.cmake src/CMakeLists.txt  
 catkin_make  
 source /home/weiding/ROS-excavators/catkin_ws/devel/setup.bash  
-chmod +x src/pudong_gazebo/scripts/*.py  
-chmod +x src/controller_manager/scripts/*  
+chmod +x src/pudong_gazebo/scripts/\*.py  
+chmod +x src/controller_manager/scripts/\*  
 ## catkin_ws工作空间下的各功能包使用、功能说明
 ### 1.controller_manager
 控制功能包。此功能为对挖掘机进行控制的基础。  
