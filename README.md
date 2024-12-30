@@ -2,7 +2,7 @@
 ## 环境安装
 #### ros: 
 https://wiki.ros.org/melodic/Installation/Ubuntu 
-#### TBB:
+#### TBB：
 参考 https://blog.csdn.net/Twilightzr/article/details/126533557 
 git clone https://github.com/oneapi-src/oneTBB
 git checkout v2020.1
