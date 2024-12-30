@@ -39,7 +39,7 @@ cmake ..
 sudo  make install  
 #### libuvc
 参考 https://blog.csdn.net/kangear/article/details/94878361  
-相机部分(可选)
+相机部分(可选)  
 sudo apt-get intall libjpeg-dev libusb-1.0-0-dev  
 sudo ldconfig  
 git clone https://github.com/ktossell/libuvc  
