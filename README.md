@@ -7,7 +7,7 @@ https://wiki.ros.org/melodic/Installation/Ubuntu
 git clone https://github.com/oneapi-src/oneTBB  
 cd oneTBB
 git checkout v2020.1  
-cmake -DTBB_ROOT=/home/twilight/twilight_lib/oneTBB-2020.1 -DTBB_OS=Linux -P cmake/tbb_config_generator.cmake  
+cmake -DTBB_ROOT=/home/twilight/twilight_lib/oneTBB -DTBB_OS=Linux -P cmake/tbb_config_generator.cmake  
 make  
 cd build  
 sudo chmod +x \*.sh  
