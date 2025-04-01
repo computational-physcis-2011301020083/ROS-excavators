@@ -1,0 +1,251 @@
+moveit joy:
+https://github.com/moveit/moveit
+moveit/moveit_ros/visualization/scripts/moveit_joy.py
+moveit_ros/visualization/src/moveit_ros_visualization/moveitjoy_module.py
+moveit_ros/moveit_servo/launch/spacenav_teleop_tools.launch
+
+#dmesg | grep Logitech
+#jstest-gtk
+rosrun joy joy_node
+rosparam set joy_node/dev "/dev/input/js0"
+roslaunch control_excavator_second joystick_control.launch
+
+
+base_to_cheshen: -3.14->3.14  0
+cheshen_to_03: -0.9->0.35  -0.275
+03_to_04: -0.8->1  0.1
+04_to_chandou: -1.4->1.2  -0.1
+rostopic echo  /wajueji/wajueji_controller/state  --noarr
+/wajueji/joint_states
+rostopic pub /wajueji/wajueji_controller/state control_msgs/JointTrajectoryControllerState '{{position: {0.0, 0.0, 0.0, 1.0, 6.0, 0.0}}'???
+sudo vim /opt/ros/melodic/lib/python2.7/dist-packages/moveit_ros_visualization/moveitjoy_module.py
+self.planning_groups_tips[g] =["base_to_cheshen","cheshen_to_03","03_to_04","04_to_chandou"] #WEI ri.get_group_joint_tips(g)
+
+
+加texture：
+通过blender将STL文件转换成dae文件，导出用dae后替换URDF中的STL文件
+根据 https://github.com/lFatality/gazebo_urdf_image_textures 
+中给dae文件加texture
+
+用gimp工具编辑map.pgm图片，然后将新编辑的map.pgm代替原来的图片。
+
+在pudong_gazebo的packages.xml中加入：
+ <export>
+    <!-- Other tools can request additional information be placed here -->
+    <gazebo_ros gazebo_media_path="${prefix}"/>  
+ </export>
+
+git command:
+#Using SSH link
+git clone git@github.com:computational-physcis-2011301020083/Loader_Selfdriving.git
+git add .
+git status
+git commit -m "Massage"
+git push
+
+root run command: su
+pip3 show numpy
+
+PARAMETERS
+ * /rosdistro: melodic
+ * /rosversion: 1.14.13
+Python 3.6.9
+Python 2.7.17
+
+马新新服务器：ssh dingw@139.224.236.66 -p 6013
+加密货币数据：/data/cryptocurrency/kline_1min/
+
+
+package search and download:
+https://index.ros.org/
+sudo apt install ros-melodic-rqt-robot-steering
+
+how to run package:
+roscore
+rosrun rqt_robot_steering rqt_robot_steering (rosrun+package_name+node_name)
+
+build workspace and directory structure:
+mkdir catkin_ws
+cd catkin_ws
+mkdir src #store source to build
+cd src #then download source code from github
+git clone https://github.com/6-robot/wpr_simulation.git
+cd wpr_simulation/scripts
+./install_for_melodic.sh #安装编译所需要的依赖包
+#进入工作空间目录catkin_ws开始编译
+cd ~/catkin_ws
+#对src目录下的所有源代码工程开始编译
+catkin_make
+#将catkin工作空间的环境参数加载到终端程序里，否则会提示找不到里面的软件包：
+source ~/catkin_ws/devel/setup.bash
+#使用roslaunch运行编译好的ros程序
+roslaunch wpr_simulation wpb_simple.launch 
+#在新的终端，用速度控制软件控制他移动
+rosrun rqt_robot_steering rqt_robot_steering 
+#将工作空间的环境参数设置添加到终端的初始化脚本中：
+vim .bashrc (source ~/carkin_ws/devel/setup.bash)
+
+
+VSCode版本：
+November 2022 (version 1.74)
+ctrl+shift+B: 编译
+
+Terminator:
+ctrl+alt+T启动
+ctrl+shift+(EOW)分屏或者删除
+
+
+package和node的创建：
+cd ~/catkin_ws/src
+#创建package
+catkin_create_pkg ssr_pkg(name) rospy(标准依赖项，支持python) roscpp(标准依赖项，支持cpp) std_msgs(标准消息包)
+#创建node
+cd src
+vim chao_node.cpp
+
+#在ssr_package中Cmakelists.txt中为新建的节点添加编译规则 Declare a C++ executable
+#并描述要连接的库 Specify libraries to link a library or executable target against
+#add_executable(vel_node src/vel_node.cpp)
+#add_dependencies(vel_node${${PROJECT_NAME}_EXPORTED_TARGETS}${catkin_EXPORTED_TARGETS})
+#target_link_libraries(vel_node${catkin_LIBRARIES} )
+
+
+#运行node
+roscore
+rosrun ssr_pkg chao_node
+#ros里面的node就是一个应用程序，和普通的C++程序没有区别
+
+#使用launch文件一次启动多个节点，遵循XML语法
+
+#使用python编写时，创建软件包之后可以直接开始编译，
+#因为使用python编写的node可以直接运行
+roscore
+rosrun ssr_pkg chao_node.py
+
+
+#查看ros系统中当前活跃的话题
+	rostopic bw	display bandwidth used by topic
+	rostopic delay	display delay of topic from timestamp in header
+	rostopic echo	print messages to screen
+	rostopic find	find topics by type
+	rostopic hz	display publishing rate of topic    
+	rostopic info	print information about active topic
+	rostopic list	list active topics
+	rostopic pub	publish data to topic
+	rostopic type	print topic or field type
+#图形化消息流
+rqt_graph
+
+rostopic echo /scan --noarr
+rosrun rqt_tf_tree rqt_tf_tree
+
+
+rosrun rqt_robot_steering rqt_robot_steering 
+grep -rnw . -e 'gpu'
+ find . -type f -name "demo.launch"
+grep -rnw '/path/to/somewhere/' -e 'pattern'
+
+
+#生成的cmakelists.txt是编译相关的配置文件
+#生成的package.xml是描述package信息的文件，包含依赖项和版本
+#roscd可以在终端中直接跳转到指定package的文件地址
+#sudo apt-get install ros-*安装的package都存放在/opt/ros/melodic/share/目录下
+#其与catkin_creat创建的软件包区别是，上述包都是现成的可执行文件，可以直接运行，
+#而catkin_ws当中的package都是源码文件，需要编译成可执行文件才能运行
+#创建新的软件包所设置的依赖项都在上述两个地址下的某一些软件包，否则会报错
+
+
+#使用Rviz可视化工具观测传感器数据
+save config to rviz 
+open config
+
+#自定义消息包类型：后两项是消息包生成和运行所需要的依赖包
+catkin_create_pkg new_msgs rospy roscpp std_msgs message_generation message_runtime
+#在new_msgs中cmakelists中进行编译设置
+## Generate messages in the 'msg' folder
+add_message_files(FILES type_one.msg)
+## Generate added messages and services with any dependencies listed here
+generate_messages(  DEPENDENCIES std_msgs)
+catkin_package( CATKIN_DEPENDS message_generation message_runtime roscpp rospy std_msgs)
+#随后还要在使用该消息的软件包ssr_pkg中的cmakelist和package.xml中进行相应修改
+
+
+#SLAM算法：激光雷达扫描建图Hector_Mapping和Gmapping 
+#Gmapping更优，建图时包含机器人的位移信息，能修正里程计误差
+roscore
+roslaunch wpr_simulation wpb_stage_slam.launch
+rosrun hector_mapping hector_mapping
+rosrun rviz rviz
+rosrun rqt_robot_steering rqt_robot_steering
+
+#map_server
+#保存地图
+rosrun map_server map_saver -f map_1
+#加载地图
+rosrun map_server map_server map_1.yaml
+
+#自主导航：move_base
+
+#全局路径规划算法Global_planner: Dijkstra算法广度优先，A*算法深度优先
+
+#粒子云定位算法 amcl
+
+#全局代价地图和局部代价地图global_costmap and local_costmap：用于避免边缘碰撞
+
+#恢复行为recovery behaviors：在导航进入停滞时，尝试刷新周围的障碍物信息，然后重新进行全局路径规划
+
+#局部规划器local_planner:
+DWA算法：Dynamic Window Approach动态窗口方法
+TEB算法：Timed Elastic Band：时间弹力带
+
+rosrun rqt_reconfigure rqt_reconfigure:窗口调参
+
+导航的Action编程借口：导航目标点
+
+检查和查看urdf文件
+check_urdf catkin_ws/src/pudong/urdf/pudong.urdf
+urdf_to_graphiz catkin_ws/src/pudong/urdf/pudong.urdf 
+
+挖掘机关节：
+base_to_cheshen
+cheshen_to_03
+03_to_04
+04_to_chandou
+
+
+moveit:
+1，对机器人进行描述，urdf-xacro，并加上相机和雷达
+2，通过moveit_setup_assistant将描述好的机器人生成一个moveit_config文件，控制启动和配置文件都在里面
+3，如果要做仿真，里面会自带一个gazebo文件夹，如果要做真实机器人控制，里面会自带driver或者bringup文件夹
+
+rviz：
+‌红色‌：代表X轴（水平向右）
+‌绿色‌：代表Y轴（垂直向下）
+‌蓝色‌：代表Z轴（垂直向前）‌
+
+
+dir in package:
+scripts:用于放置脚本文件和python程序，安装依赖包，为实体机器人映射端口
+
+protoc不兼容问题报错解决：
+sudo apt-get remove protobuf-compiler
+python -m pip install protobuf==3.6.1
+
+报错：Could not load controller 'wajueji_controller' because controller type 'position_controllers/JointTrajectoryController' does not exist.
+解决：sudo apt install ros-melodic-joint-trajectory-controller
+
+报错：con not convert sdf 1.7 to 1.6
+解决：change *.world sdf version 1.7 to 1.6
+
+报错：No p gain specified for pid.
+解决：https://blog.csdn.net/qq_42768827/article/details/122418978?ops_request_misc=%257B%2522request%255Fid%2522%253A%25224d792eee460269f9cb24d78bf522e696%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=4d792eee460269f9cb24d78bf522e696&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_click~default-2-122418978-null-null.142^v100^pc_search_result_base9&utm_term=No%20p%20gain%20specified%20for%20pid.&spm=1018.2226.3001.4187
+
+package是node容器，一个package可以包含多个node
+在商店下载是以package形式下载
+
+
+
+
+
+
+
